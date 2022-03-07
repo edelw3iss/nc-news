@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  background-color: #FFEDCF;
+}
+
+header {
+  color: #FF1814
 }
 
 /* nav */
@@ -7,8 +12,9 @@
 .Nav__link {
   display: block;
   padding: 8px;
-  background-color: aliceblue;
+  background-color: #EBAF90;
   text-decoration: none;
+  color: #FF1814;
 }
 
 ul {
@@ -36,5 +42,5 @@ li {
 .ArticleCard__article {
   border-style: solid;
   padding: 2%;
-  background-color: aliceblue;
+  background-color: #EBAF90;
 }

@@ -10,6 +10,10 @@ export function getTopics () {
     })
 }
 
+// export function getArticlesByTopic (topic_slug) {
+//     return api.get(`articles?topic=${topic_slug}`)
+// }
+
 export function getArticles () {
     return api.get("/articles").then((res) => {
         return res.data.articles;

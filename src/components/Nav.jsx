@@ -1,14 +1,14 @@
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// import { getTopics } from "../utils/api";
+import { getTopics } from "../utils/api";
 
-export default function Nav({topics, setTopics}) {
-  // const [topics, setTopics] = useState([]);
-  // useEffect(() => {
-  //   getTopics().then((topics) => {
-  //     setTopics(topics);
-  //   });
-  // }, []);
+export default function Nav() {
+  const [topics, setTopics] = useState([]);
+  useEffect(() => {
+    getTopics().then((topics) => {
+      setTopics(topics);
+    });
+  }, []);
 
   return (
     <nav>
@@ -19,7 +19,7 @@ export default function Nav({topics, setTopics}) {
         {topics.map((topic) => {
           return (
           <li key={topic.slug}>
-            <Link to={`/${topic.slug}`} className="Nav__link">{topic.slug}</Link>
+            <Link to={`/topics/${topic.slug}`} className="Nav__link">{topic.slug}</Link>
           </li>
           )
         })}

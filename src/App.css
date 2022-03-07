@@ -2,3 +2,28 @@
   text-align: center;
 }
 
+.Nav__link{
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
+  text-decoration: none;
+
+  /* background-color: rgb(122, 214, 218);
+  display: block;
+  float: left;
+  width: 50px;
+  margin: 1%;
+  padding: 1%;
+  text-decoration: none; */
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+li {
+  float: left;
+}

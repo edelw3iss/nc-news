@@ -11,7 +11,7 @@ export default function ArticleList() {
   }, []);
 
   return (
-    <section>
+    <section className="ArticleList__container">
       {articles.map((article) => {
         return (
             <ArticleCard key={article.article_id} {...article}/>

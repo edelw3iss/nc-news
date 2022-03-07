@@ -6,7 +6,12 @@ const api = axios.create({
 
 export function getTopics () {
     return api.get("/topics").then((res) => {
-        console.log(res.data.topics);
         return res.data.topics;
+    })
+}
+
+export function getArticles () {
+    return api.get("/articles").then((res) => {
+        return res.data.articles;
     })
 }

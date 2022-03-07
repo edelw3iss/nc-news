@@ -1,3 +1,11 @@
-export default function Home () {
-    return <p>Home page</p>
+import ArticleList from "./ArticleList";
+
+
+export default function Home() {
+
+  return (
+    <main>
+        <ArticleList />
+    </main>
+  );
 }

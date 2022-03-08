@@ -1,3 +1,3 @@
-export default function formatDate (article) {
-return `${article.created_at.slice(0,10)} ${article.created_at.slice(11,16)}`
+export default function formatDate(date) {
+  return `${date.slice(0, 10)} ${date.slice(11, 16)}`;
 }

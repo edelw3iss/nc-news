@@ -7,7 +7,7 @@ export default function Topic() {
   const [articlesByTopic, setArticlesByTopic] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { topic_slug } = useParams();
-  console.log(topic_slug, "topic");
+
   useEffect(() => {
     getArticlesByTopic(topic_slug).then((articlesByTopic) => {
       setArticlesByTopic(articlesByTopic);

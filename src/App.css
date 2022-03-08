@@ -1,6 +1,9 @@
+html {
+  background-color: #FFEDCF;
+}
+
 .App {
   text-align: center;
-  background-color: #FFEDCF;
 }
 
 header {
@@ -43,4 +46,31 @@ li {
   border-style: solid;
   padding: 2%;
   background-color: #EBAF90;
+}
+
+/* Single Article */
+
+@media (min-width: 640px) {
+  .SingleArticle__body {
+    margin: auto;
+    width: 70%;
+    border-style: solid;
+    text-align: center;
+  }
+}
+
+.SingleArticle__body {
+  padding: 4%;
+}
+
+.SingleArticle__topic {
+  text-align: left;
+  font-style:italic;
+}
+
+.LikeButtons__button {
+  padding: 1%;
+  margin: 1%;
+  background-color: white;
+  border-color: #FF1814;
 }

@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
 import Topic from "./components/Topic";
+import SingleArticle from "./components/SingleArticle";
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/topics/:topic_slug" element={<Topic />} />
-  
+        <Route path="/articles/:article_id" element={<SingleArticle />}/>
       </Routes>
     </div>
   );

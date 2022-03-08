@@ -22,3 +22,9 @@ export function getArticles() {
     return res.data.articles;
   });
 }
+
+export function getArticleById(article_id) {
+  return api.get(`/articles/${article_id}`).then((res) => {
+    return res.data.article;
+  })
+}

@@ -11,7 +11,6 @@ export function getTopics() {
 }
 
 export function getArticlesByTopic(topic_slug) {
-  console.log(topic_slug, "in get function")
   return api.get(`/articles?topic=${topic_slug}`).then((res) => {
     return res.data.articles;
   });

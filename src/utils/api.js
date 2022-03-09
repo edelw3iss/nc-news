@@ -35,3 +35,4 @@ export function patchVotes(article_id, inc_votes) {
     return res.data.article;
   })
 }
+

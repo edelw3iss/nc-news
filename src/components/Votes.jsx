@@ -37,7 +37,7 @@ export default function Votes({ articleId, votes }) {
           handleClick(1);
         }}
       >
-        👍 Like
+         Like
       </button>
       <p className={`button--disabled_${buttonDisabled.minus}`}>👍 Liked!</p>
       <button

@@ -35,3 +35,9 @@ export function patchVotes(article_id, inc_votes) {
     return res.data.article;
   })
 }
+
+export function getCommentsByArticleId(article_id) {
+  return api.get(`/articles/${article_id}/comments`).then((res) => {
+    return res.data.comments;
+  })
+}

@@ -28,7 +28,7 @@ export default function Votes({ articleId, votes }) {
 
   return (
     <section>
-      <h4>Likes {voteDisp}</h4>
+      <h4>👍 Likes {voteDisp}</h4>
       
       <button
         className={`button--disabled_${buttonDisabled.plus}`}
@@ -37,7 +37,7 @@ export default function Votes({ articleId, votes }) {
           handleClick(1);
         }}
       >
-         Like
+        👍 Like
       </button>
       <p className={`button--disabled_${buttonDisabled.minus}`}>👍 Liked!</p>
       <button

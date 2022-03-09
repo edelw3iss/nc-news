@@ -27,3 +27,12 @@ export function getArticleById(article_id) {
     return res.data.article;
   })
 }
+
+export function patchVotes(article_id, inc_votes) {
+  console.log({inc_votes}, "inc_votes in api")
+  return api.patch(`/articles/${article_id}`, {inc_votes}).then((res) => {
+    console.log(res.data.article, "in patch votes")
+    return res.data.article;
+  })
+}
+

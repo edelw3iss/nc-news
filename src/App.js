@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import Home from "./components/Home";
 import Topic from "./components/Topic";
 import SingleArticle from "./components/SingleArticle";
+import ErrorPage from "./components/ErrorPage";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/topics/:topic_slug" element={<Topic />} />
         <Route path="/articles/:article_id" element={<SingleArticle />}/>
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );

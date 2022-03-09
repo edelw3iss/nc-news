@@ -24,7 +24,7 @@ export default function SingleArticle() {
       <h3>{article.author}</h3>
       <h4>{formatDate(article.created_at)}</h4>
       <p className="SingleArticle__body">{article.body}</p>
-      <Votes />
+      <Votes articleId={article.article_id} votes={article.votes} />
     </main>
   );
 }

@@ -9,6 +9,7 @@ export default function Topic() {
   const { topic_slug } = useParams();
 
   useEffect(() => {
+    setIsLoading(true);
     getArticlesByTopic(topic_slug).then((articlesByTopic) => {
       setArticlesByTopic(articlesByTopic);
       setIsLoading(false);

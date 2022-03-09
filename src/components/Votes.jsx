@@ -22,7 +22,10 @@ export default function Votes({ articleId, votes }) {
       return newButtonDisabled;
     });
     patchVotes(articleId, voteInc).catch((err) => {
-      // setVoteDisp(voteDisp)
+      setVoteDisp((currVoteDisp) => currVoteDisp - voteInc);
+      setButtonDisabled((currButtDis) => {
+        return {plus: false, minus: true}
+      })
     });
   };
 

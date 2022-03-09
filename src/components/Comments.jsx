@@ -32,4 +32,4 @@ export default function Comments({ articleId }) {
       </CollapseWrapper>
     </section>
   );
-
+}

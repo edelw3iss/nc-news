@@ -34,7 +34,6 @@ export default function Votes({ articleId, votes }) {
       <h4>
         <i class="fa-solid fa-thumbs-up"></i> Likes {voteDisp}
       </h4>
-
       <button
         className={`button--disabled_${buttonDisabled.plus}`}
         onClick={() => {

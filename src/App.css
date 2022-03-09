@@ -68,9 +68,13 @@ li {
   font-style:italic;
 }
 
-.LikeButtons__button {
+.button--disabled_false {
   padding: 1%;
   margin: 1%;
   background-color: white;
   border-color: #FF1814;
+}
+
+.button--disabled_true {
+  display:none;
 }

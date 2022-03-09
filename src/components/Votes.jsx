@@ -8,7 +8,7 @@ export default function Votes({ articleId, votes }) {
     minus: true,
   });
   const handleClick = (voteInc) => {
-    setVoteDisp(voteDisp + voteInc);
+    setVoteDisp((currVoteDisp) => currVoteDisp + voteInc);
     setButtonDisabled((currentButtonDisabled) => {
       const newButtonDisabled = { ...currentButtonDisabled };
       if (voteInc === 1) {
@@ -22,34 +22,38 @@ export default function Votes({ articleId, votes }) {
       return newButtonDisabled;
     });
     patchVotes(articleId, voteInc).catch((err) => {
-      console.log(err);
+      setVoteDisp((currVoteDisp) => currVoteDisp - voteInc);
+      setButtonDisabled((currButtDis) => {
+        return {plus: false, minus: true}
+      })
     });
   };
 
   return (
     <section>
-      <h4>👍 Likes {voteDisp}</h4>
-      
+      <h4>
+        <i class="fa-solid fa-thumbs-up"></i> Likes {voteDisp}
+      </h4>
       <button
         className={`button--disabled_${buttonDisabled.plus}`}
-        
         onClick={() => {
           handleClick(1);
         }}
       >
-        👍 Like
+        <i class="fa-solid fa-thumbs-up"></i> Like
       </button>
-      <p className={`button--disabled_${buttonDisabled.minus}`}>👍 Liked!</p>
+
       <button
-      className={`button--disabled_${buttonDisabled.minus}`}
-        
+        className={`button--disabled_${buttonDisabled.minus}`}
         onClick={() => {
           handleClick(-1);
         }}
-        
       >
         Unlike
       </button>
+      <p className={`button--disabled_${buttonDisabled.minus}`}>
+        <i class="fa-solid fa-thumbs-up"></i> Liked!
+      </p>
     </section>
   );
 }

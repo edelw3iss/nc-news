@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { getCommentsByArticleId } from "../utils/api";
 import formatDate from "../utils/formatDate";
@@ -31,4 +32,4 @@ export default function Comments({ articleId }) {
       </CollapseWrapper>
     </section>
   );
-}
+

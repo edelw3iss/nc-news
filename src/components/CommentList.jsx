@@ -16,8 +16,6 @@ export default function Comments({ articleId }) {
     });
   }, [articleId]);
 
- 
-
   return (
     <section>
       <h2>Comments</h2>
@@ -36,7 +34,6 @@ export default function Comments({ articleId }) {
           );
         })}
       </CollapseWrapper>
-      
     </section>
   );
 }

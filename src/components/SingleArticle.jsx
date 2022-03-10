@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getArticleById } from "../utils/api";
 import Votes from "./Votes";
 import formatDate from "../utils/formatDate";
-import Comments from "./Comments";
+import Comments from "./CommentList";
 
 export default function SingleArticle() {
   const [article, setArticle] = useState({});
@@ -19,11 +19,11 @@ export default function SingleArticle() {
   return isLoading ? (
     <h2>Loading...</h2>
   ) : (
-    <main>
-      <p className="SingleArticle__topic">{article.topic}</p>
+    <main className="SingleArticle__main">
       <h2>{article.title}</h2>
       <h3>{article.author}</h3>
       <h4>{formatDate(article.created_at)}</h4>
+      <p className="SingleArticle__topic">{article.topic}</p>
       <p className="SingleArticle__body">{article.body}</p>
       <Votes articleId={article.article_id} votes={article.votes} />
       <Comments articleId={article.article_id} />

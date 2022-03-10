@@ -32,7 +32,7 @@ export default function Votes({ articleId, votes }) {
   return (
     <section>
       <h4>
-        <i class="fa-solid fa-thumbs-up"></i> Likes {voteDisp}
+        <i className="fa-solid fa-thumbs-up"></i> Likes {voteDisp}
       </h4>
       <button
         className={`button--disabled_${buttonDisabled.plus}`}
@@ -40,7 +40,7 @@ export default function Votes({ articleId, votes }) {
           handleClick(1);
         }}
       >
-        <i class="fa-solid fa-thumbs-up"></i> Like
+        <i className="fa-solid fa-thumbs-up"></i> Like
       </button>
 
       <button
@@ -51,8 +51,8 @@ export default function Votes({ articleId, votes }) {
       >
         Unlike
       </button>
-      <p className={`button--disabled_${buttonDisabled.minus}`}>
-        <i class="fa-solid fa-thumbs-up"></i> Liked!
+      <p style={{color: "#ff1814"}} className={`button--disabled_${buttonDisabled.minus}`}>
+        <i className="fa-solid fa-thumbs-up"></i> Liked! 
       </p>
     </section>
   );

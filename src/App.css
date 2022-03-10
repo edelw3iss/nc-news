@@ -68,10 +68,12 @@ li {
   }
 }
 
-.ArticleList__container {
+@media (max-width: 640px) {
+  .ArticleList__container {
   display: block;
   margin-top: 5%;
   padding-top: 10%;
+}
 }
 
 .ArticleCard__article {

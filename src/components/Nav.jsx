@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../contexts/UserContext";
 import { getTopics } from "../utils/api";
 
 export default function Nav() {
   const [topics, setTopics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { loggedInUser } = useContext(UserContext);
   useEffect(() => {
     getTopics().then((topics) => {
       setTopics(topics);
@@ -32,6 +34,7 @@ export default function Nav() {
               </li>
             );
           })}
+          <li className="Nav__user">{loggedInUser.username}</li>
         </ul>
       )}
     </nav>

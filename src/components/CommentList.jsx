@@ -20,7 +20,7 @@ export default function Comments({ articleId }) {
       votes: 0,
       author: commentToAdd.username,
       body: commentToAdd.body,
-      created_at: "2021-01-01T12:00:00Z",
+      created_at: new Date().toISOString(),
     };
     setComments((currentComments) => {
       return [formattedComment, ...currentComments];
@@ -34,14 +34,14 @@ export default function Comments({ articleId }) {
     <section>
       <h2>Comments</h2>
       <CollapseWrapper>
-        {comments.map((comment) => {
+        {comments.map((comment, index) => {
           return (
-            <article key={comment.id}>
+            <article key={comment.id || `comment-${index}`}>
               <h3>{comment.author}</h3>
               <h4>{formatDate(comment.created_at)}</h4>
               <p>{comment.body}</p>
               <p>
-                <i class="fa-solid fa-thumbs-up"></i> {comment.votes}
+                <i className="fa-solid fa-thumbs-up"></i> {comment.votes}
               </p>
             </article>
           );

@@ -1,43 +1,26 @@
 import { useEffect, useState } from "react";
 import { getArticlesByTopic } from "../utils/api";
 import ArticleCard from "./ArticleCard";
-// import SortArticle from "./SortArticle";
+import SortArticles from "./SortArticles";
 
 export default function ArticleList({ topic_slug }) {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [sortBy, setSortBy] = useState(false);
-  const [orderBy, setOrderBy] = useState(false);
+  const [sortBy, setSortBy] = useState(["created_at", "asc"]);
 
   useEffect(() => {
     setIsLoading(true);
-    getArticlesByTopic(topic_slug, sortBy, orderBy).then((articles) => {
+    getArticlesByTopic(topic_slug, sortBy[0], sortBy[1]).then((articles) => {
       setArticles(articles);
       setIsLoading(false);
     });
-  }, [topic_slug, sortBy, orderBy]);
+  }, [topic_slug, sortBy]);
 
   return isLoading ? (
     <h2>Loading...</h2>
   ) : (
     <section>
-      <label>
-        Sort By:
-        <select onChange={(e) => setSortBy(e.target.value)}>
-          <option value="false">None</option>
-          <option value="title">Title</option>
-          <option value="author">Author</option>
-          <option value="created_at">Created at</option>
-          <option value="votes">Number of Likes</option>
-          <option value="comment_count">Number of Comments</option>
-        </select>
-      </label>
-      <select onChange={(e) => setOrderBy(e.target.value)}>
-        <option value="false">Descending</option>
-        <option value="asc">Ascending</option>
-      </select>
-      <label>Order By:</label>
-      {/* <SortArticle setIsLoading={setIsLoading} topic_slug="topic_slug" setArticles={setArticles} /> */}
+      <SortArticles setSortBy={setSortBy}/>
       <section className="ArticleList__container">
         {articles.map((article) => {
           return <ArticleCard key={article.article_id} {...article} />;

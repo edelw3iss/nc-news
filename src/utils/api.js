@@ -11,18 +11,13 @@ export function getTopics() {
 }
 
 export function getArticlesByTopic(topic_slug, sort_by, order_by) {
-let topicString = `topic=${topic_slug}`;
-let sortByString = `sort_by=${sort_by}`;
-let orderByString = `&order_by=${order_by}`
-  if (topic_slug === undefined) topicString = '';
-  if (!sort_by) sortByString = '';
-  if (!order_by) orderByString = '';
-  // if (topic_slug === undefined && sort_by === undefined) {
-  //   return api.get("/articles").then((res) => {
-  //     return res.data.articles;
-  //   });
-  
-    return api.get(`/articles?${topicString}&${sortByString}${orderByString}`).then((res) => {
+  let topicString = `topic=${topic_slug}&`;
+  const sortByString = `sort_by=${sort_by}`;
+  const orderByString = `&order=${order_by}`;
+  if (topic_slug === undefined) topicString = "";
+  return api
+    .get(`/articles?${topicString}${sortByString}${orderByString}`)
+    .then((res) => {
       return res.data.articles;
     });
   // }

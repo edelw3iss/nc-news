@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getArticleById } from "../utils/api";
 import Votes from "./Votes";
 import formatDate from "../utils/formatDate";
-import Comments from "./Comments";
+import Comments from "./CommentList";
 
 export default function SingleArticle() {
   const [article, setArticle] = useState({});

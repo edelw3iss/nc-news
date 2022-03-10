@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getCommentsByArticleId, postCommentByArticleId } from "../utils/api";
+import { getCommentsByArticleId } from "../utils/api";
 import formatDate from "../utils/formatDate";
 import CollapseWrapper from "./CollapseWrapper";
 import CommentAdder from "./CommentAdder";
@@ -7,6 +7,7 @@ import CommentAdder from "./CommentAdder";
 export default function Comments({ articleId }) {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  
   useEffect(() => {
     setIsLoading(true);
     getCommentsByArticleId(articleId).then((comments) => {
@@ -15,25 +16,13 @@ export default function Comments({ articleId }) {
     });
   }, [articleId]);
 
-  const addComment = (commentToAdd) => {
-    const formattedComment = {
-      votes: 0,
-      author: commentToAdd.username,
-      body: commentToAdd.body,
-      created_at: new Date().toISOString(),
-    };
-    setComments((currentComments) => {
-      return [formattedComment, ...currentComments];
-    });
-    postCommentByArticleId(articleId, commentToAdd).catch((err) => {
-      console.log(err);
-    });
-  };
+ 
 
   return (
     <section>
       <h2>Comments</h2>
       <CollapseWrapper>
+      <CommentAdder articleId={articleId} setComments={setComments} />
         {comments.map((comment, index) => {
           return (
             <article key={comment.id || `comment-${index}`}>
@@ -47,7 +36,7 @@ export default function Comments({ articleId }) {
           );
         })}
       </CollapseWrapper>
-      <CommentAdder addComment={addComment} />
+      
     </section>
   );
 }

@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
-import { getArticles } from "../utils/api";
+import { getArticlesByTopic } from "../utils/api";
 import ArticleCard from "./ArticleCard";
 
-export default function ArticleList() {
+export default function ArticleList({topic_slug}) {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    getArticles().then((articles) => {
+    setIsLoading(true);
+    getArticlesByTopic(topic_slug).then((articles) => {
       setArticles(articles);
       setIsLoading(false);
     });
-  }, []);
+  }, [topic_slug]);
 
   return isLoading ? (
     <h2>Loading...</h2>

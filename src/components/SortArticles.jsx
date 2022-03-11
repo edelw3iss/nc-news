@@ -1,9 +1,12 @@
-export default function SortArticles({setSortBy}) {
-  return (<section>
-    <label htmlFor="sort by select">Sort by: </label>
-      <select defaultValue={"created_at desc"}
+export default function SortArticles({ selected, setSelected, setSortBy }) {
+  
+  return (
+    <section>
+      <label htmlFor="sort by select">Sort by: </label>
+      <select value={selected}
         onChange={(e) => {
-            console.log(e, "event!!!")
+          console.log(e, "event!!!");
+          setSelected(e.target.value);
           const valueArray = e.target.value.split(" ");
           setSortBy(valueArray);
         }}

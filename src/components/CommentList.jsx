@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getCommentsByArticleId } from "../utils/api";
 import formatDate from "../utils/formatDate";
 import CollapseWrapper from "./CollapseWrapper";
 import CommentAdder from "./CommentAdder";
+import DeleteComment from "./DeleteComment";
 
 export default function Comments({ articleId }) {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  
   
   useEffect(() => {
     setIsLoading(true);
@@ -16,7 +18,9 @@ export default function Comments({ articleId }) {
     });
   }, [articleId]);
 
-  return (
+  return isLoading ? (
+    <h2>Loading...</h2>
+  ) : (
     <section>
       <h2>Comments</h2>
       <CollapseWrapper>
@@ -30,6 +34,7 @@ export default function Comments({ articleId }) {
               <p>
                 <i className="fa-solid fa-thumbs-up"></i> {comment.votes}
               </p>
+              <DeleteComment {...comment} setComments={setComments}/>
             </article>
           );
         })}

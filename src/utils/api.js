@@ -37,6 +37,10 @@ export function patchVotes(article_id, inc_votes) {
   });
 }
 
+export function deleteComment(comment_id) {
+  return api.delete(`/comments/${comment_id}`)
+}
+
 export function getCommentsByArticleId(article_id) {
   return api.get(`/articles/${article_id}/comments`).then((res) => {
     return res.data.comments;

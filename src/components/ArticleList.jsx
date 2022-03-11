@@ -7,7 +7,7 @@ export default function ArticleList({ topic_slug }) {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [sortBy, setSortBy] = useState(["created_at", "desc"]);
-  // const [selected, setSelected] = useState()
+  const [selected, setSelected] = useState("created_at desc");
 
   useEffect(() => {
     setIsLoading(true);
@@ -21,7 +21,7 @@ export default function ArticleList({ topic_slug }) {
     <h2>Loading...</h2>
   ) : (
     <section>
-      <SortArticles setSortBy={setSortBy}/>
+      <SortArticles selected={selected} setSelected={setSelected} setSortBy={setSortBy}/>
       <section className="ArticleList__container">
         {articles.map((article) => {
           return <ArticleCard key={article.article_id} {...article} />;

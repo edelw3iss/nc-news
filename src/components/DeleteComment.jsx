@@ -7,24 +7,30 @@ export default function ({ comment, index, setComments }) {
   const { loggedInUser } = useContext(UserContext);
   const [isError, setIsError] = useState(false);
 
-  console.log(comment_id, author, "in delete comment");
   const handleClick = () => {
-    console.log(comment_id, "in delete button");
-    setIsError(false);
     setComments((currComments) =>
       currComments.filter((comment) => comment.comment_id !== comment_id)
     );
-    deleteComment(comment_id).catch((err) => {
-      setIsError(true);
-      setComments((currentComments) => {
-        const newComments = [...currentComments]
-        newComments.splice(index, 0, comment);
-        return newComments;
+    deleteComment(comment_id)
+      .then(() => {
+        setIsError(false);
+      })
+      .catch((err) => {
+        setIsError(true);
+        setComments((currentComments) => {
+          const newComments = [...currentComments];
+          newComments.splice(index, 0, comment);
+          return newComments;
+        });
       });
-    });
   };
 
   if (loggedInUser.username === author) {
-    return <button onClick={handleClick}>Delete Comment</button>;
+    return (
+      <div>
+        <button onClick={handleClick}>Delete Comment</button>
+        {isError ? <h3>Problem deleting comment - please try again</h3> : ""}
+      </div>
+    );
   } else return <></>;
 }

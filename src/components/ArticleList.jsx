@@ -6,7 +6,8 @@ import SortArticles from "./SortArticles";
 export default function ArticleList({ topic_slug }) {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [sortBy, setSortBy] = useState(["created_at", "asc"]);
+  const [sortBy, setSortBy] = useState(["created_at", "desc"]);
+  // const [selected, setSelected] = useState()
 
   useEffect(() => {
     setIsLoading(true);

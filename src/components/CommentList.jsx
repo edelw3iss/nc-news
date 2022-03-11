@@ -34,7 +34,7 @@ export default function Comments({ articleId }) {
               <p>
                 <i className="fa-solid fa-thumbs-up"></i> {comment.votes}
               </p>
-              <DeleteComment comment={comment} comments={comments} setComments={setComments}/>
+              <DeleteComment comment={comment} index={index} setComments={setComments}/>
             </article>
           );
         })}
@@ -44,4 +44,3 @@ export default function Comments({ articleId }) {
 }
 
 
-// comment_id={comment.comment_id} author={comment.author} 

@@ -16,17 +16,20 @@ export default function CommentAdder({ articleId, setComments }) {
   };
 
   const addComment = (commentToAdd) => {
-    const formattedComment = {
-      votes: 0,
-      author: commentToAdd.username,
-      body: commentToAdd.body,
-      created_at: new Date().toISOString(),
-    };
+    // const formattedComment = {
+    //   votes: 0,
+    //   author: commentToAdd.username,
+    //   body: commentToAdd.body,
+    //   created_at: new Date().toISOString(),
+    // };
     setIsError(false);
-    setComments((currentComments) => {
-      return [formattedComment, ...currentComments];
-    });
-    postCommentByArticleId(articleId, commentToAdd).catch((error) => {
+    
+    postCommentByArticleId(articleId, commentToAdd).then((comment) => {
+      setComments((currentComments) => {
+        return [comment, ...currentComments];
+      });
+    })
+    .catch((error) => {
       setIsError(true);
       setComments((currentComments) => {
         return currentComments.slice(1);

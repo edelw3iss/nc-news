@@ -36,7 +36,7 @@ export default function SingleArticle() {
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
-  if (error) return <ErrorPage msg={error.msg}/>
+  if (error) return <ErrorPage msg={error.msg} status={error.status}/>
 
   return (
   <main className="SingleArticle__main">

@@ -5,7 +5,6 @@ export default function SortArticles({ selected, setSelected, setSortBy }) {
       <label htmlFor="sort by select">Sort by: </label>
       <select value={selected}
         onChange={(e) => {
-          console.log(e, "event!!!");
           setSelected(e.target.value);
           const valueArray = e.target.value.split(" ");
           setSortBy(valueArray);

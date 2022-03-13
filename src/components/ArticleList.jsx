@@ -9,6 +9,7 @@ export default function ArticleList({ topic_slug }) {
   const [sortBy, setSortBy] = useState(["created_at", "desc"]);
   const [selected, setSelected] = useState("created_at desc");
 
+
   useEffect(() => {
     setIsLoading(true);
     getArticlesByTopic(topic_slug, sortBy[0], sortBy[1]).then((articles) => {

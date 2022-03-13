@@ -1,5 +1,4 @@
 export default function SortArticles({ selected, setSelected, setSortBy }) {
-  
   return (
     <section>
       <label htmlFor="sort by select">Sort by: </label>

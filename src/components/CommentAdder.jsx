@@ -10,12 +10,18 @@ export default function CommentAdder({ articleId, setComments }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const newComment = { username: loggedInUser.username, body: comment };
+    console.log(loggedInUser, "user")
     addComment(newComment);
     setComment("");
   };
 
   const addComment = (commentToAdd) => {
-
+    // const formattedComment = {
+    //   votes: 0,
+    //   author: commentToAdd.username,
+    //   body: commentToAdd.body,
+    //   created_at: new Date().toISOString(),
+    // };
     setIsError(false);
     
     postCommentByArticleId(articleId, commentToAdd).then((comment) => {

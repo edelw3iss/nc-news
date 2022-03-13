@@ -30,9 +30,7 @@ export function getArticleById(article_id) {
 }
 
 export function patchVotes(article_id, inc_votes) {
-  console.log({ inc_votes }, "inc_votes in api");
   return api.patch(`/articles/${article_id}`, { inc_votes }).then((res) => {
-    console.log(res.data.article, "in patch votes");
     return res.data.article;
   });
 }
@@ -49,4 +47,8 @@ export function postCommentByArticleId(article_id, newComment) {
     .then((res) => {
       return res.data.comment;
     });
+}
+
+export function deleteComment(comment_id) {
+  return api.delete(`/comments/${comment_id}`)
 }

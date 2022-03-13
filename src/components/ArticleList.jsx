@@ -7,7 +7,8 @@ export default function ArticleList({ topic_slug }) {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [sortBy, setSortBy] = useState(["created_at", "desc"]);
-  const [selected, setSelected] = useState("created_at, desc")
+  const [selected, setSelected] = useState("created_at desc");
+
 
   useEffect(() => {
     setIsLoading(true);
